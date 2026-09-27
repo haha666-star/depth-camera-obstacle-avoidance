@@ -1,1 +1,23 @@
-# bootstrap
+# 统一换行符：入库与检出都用 LF
+# 原因：本包最终要部署到 Ubuntu（ROS2），CRLF 会让 .sh 报
+#       "bad interpreter: /bin/bash^M"，也会污染 launch / Python shebang。
+* text=auto eol=lf
+
+# 代码与脚本显式声明
+*.sh         text eol=lf
+*.py         text eol=lf
+*.launch.py  text eol=lf
+*.yaml       text eol=lf
+*.yml        text eol=lf
+*.xml        text eol=lf
+*.urdf       text eol=lf
+*.md         text eol=lf
+*.rviz       text eol=lf
+
+# 二进制，禁止任何转换
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.pgm   binary
+*.npz   binary
+*.db    binary

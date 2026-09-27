@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="sim_robot">
+  <!-- 车体：一个 0.3x0.3x0.2 的方块 -->
+  <link name="base_link">
+    <visual>
+      <geometry><box size="0.3 0.3 0.2"/></geometry>
+      <material name="blue"><color rgba="0.18 0.42 0.87 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.3 0.3 0.2"/></geometry>
+    </collision>
+  </link>
+
+  <!-- 激光雷达：装在车体上方 0.1m -->
+  <link name="laser">
+    <visual>
+      <geometry><cylinder length="0.05" radius="0.03"/></geometry>
+      <material name="black"><color rgba="0.1 0.1 0.1 1.0"/></material>
+    </visual>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin xyz="0.0 0.0 0.1"/>
+  </joint>
+</robot>
